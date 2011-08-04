@@ -1,1 +1,7 @@
 smokers are awesome !!
+
+Arduino:
+Download PIDLibrary from http://arduino.cc/playground/Code/PIDLibrary and copy to <base>/libraries
+
+iPhone:
+Download xcode 4.0.2 and open app.xcodeproj
