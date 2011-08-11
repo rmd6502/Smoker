@@ -14,14 +14,23 @@
 @synthesize window=_window;
 
 @synthesize navigationController=_navigationController;
+@synthesize enterServerController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
     // Add the navigation controller's view to the window and display.
-    self.window.rootViewController = self.navigationController;
+    
+    EnterServerController *aServerController = [[EnterServerController alloc]
+                                                initWithNibName:@"EnterServerController" bundle:nil];
+    [self setEnterServerController:aServerController];
+    [aServerController release];
+    
+    /* self.window.rootViewController = self.navigationController; */
+    self.window.rootViewController = self.enterServerController;
     [self.window makeKeyAndVisible];
     return YES;
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
