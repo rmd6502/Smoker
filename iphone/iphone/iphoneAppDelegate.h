@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class EnterServerController;
+
 @interface iphoneAppDelegate : NSObject <UIApplicationDelegate> {
 
 }
-
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
 @property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
+
+@property (nonatomic, retain) EnterServerController *enterServerController;
 
 @end

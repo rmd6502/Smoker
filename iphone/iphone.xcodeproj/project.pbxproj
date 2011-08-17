@@ -22,6 +22,9 @@
 		F71FC6F213EA359500322E72 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F71FC6F013EA359500322E72 /* InfoPlist.strings */; };
 		F71FC6F513EA359500322E72 /* iphoneTests.h in Resources */ = {isa = PBXBuildFile; fileRef = F71FC6F413EA359500322E72 /* iphoneTests.h */; };
 		F71FC6F713EA359500322E72 /* iphoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F71FC6F613EA359500322E72 /* iphoneTests.m */; };
+		F7BE135013F35F11006E5B52 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F7BE134F13F35F11006E5B52 /* Default.png */; };
+		F7BE135A13F3666E006E5B52 /* EnterServerController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BE135813F3666E006E5B52 /* EnterServerController.m */; };
+		F7BE135B13F3666E006E5B52 /* EnterServerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7BE135913F3666E006E5B52 /* EnterServerController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,10 @@
 		F71FC6F313EA359500322E72 /* iphoneTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iphoneTests-Prefix.pch"; sourceTree = "<group>"; };
 		F71FC6F413EA359500322E72 /* iphoneTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iphoneTests.h; sourceTree = "<group>"; };
 		F71FC6F613EA359500322E72 /* iphoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iphoneTests.m; sourceTree = "<group>"; };
+		F7BE134F13F35F11006E5B52 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		F7BE135713F3666E006E5B52 /* EnterServerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnterServerController.h; sourceTree = "<group>"; };
+		F7BE135813F3666E006E5B52 /* EnterServerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnterServerController.m; sourceTree = "<group>"; };
+		F7BE135913F3666E006E5B52 /* EnterServerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EnterServerController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +91,7 @@
 		F71FC6B813EA359500322E72 = {
 			isa = PBXGroup;
 			children = (
+				F7BE134F13F35F11006E5B52 /* Default.png */,
 				F71FC6CD13EA359500322E72 /* iphone */,
 				F71FC6ED13EA359500322E72 /* iphoneTests */,
 				F71FC6C613EA359500322E72 /* Frameworks */,
@@ -118,6 +126,9 @@
 				F71FC6D913EA359500322E72 /* MainWindow.xib */,
 				F71FC6DC13EA359500322E72 /* RootViewController.h */,
 				F71FC6DD13EA359500322E72 /* RootViewController.m */,
+				F7BE135713F3666E006E5B52 /* EnterServerController.h */,
+				F7BE135813F3666E006E5B52 /* EnterServerController.m */,
+				F7BE135913F3666E006E5B52 /* EnterServerController.xib */,
 				F71FC6DF13EA359500322E72 /* RootViewController.xib */,
 				F71FC6CE13EA359500322E72 /* Supporting Files */,
 			);
@@ -225,6 +236,8 @@
 				F71FC6D213EA359500322E72 /* InfoPlist.strings in Resources */,
 				F71FC6DB13EA359500322E72 /* MainWindow.xib in Resources */,
 				F71FC6E113EA359500322E72 /* RootViewController.xib in Resources */,
+				F7BE135013F35F11006E5B52 /* Default.png in Resources */,
+				F7BE135B13F3666E006E5B52 /* EnterServerController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +276,7 @@
 				F71FC6D513EA359500322E72 /* main.m in Sources */,
 				F71FC6D813EA359500322E72 /* iphoneAppDelegate.m in Sources */,
 				F71FC6DE13EA359500322E72 /* RootViewController.m in Sources */,
+				F7BE135A13F3666E006E5B52 /* EnterServerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +457,7 @@
 				F71FC6FC13EA359500322E72 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F71FC6FD13EA359500322E72 /* Build configuration list for PBXNativeTarget "iphoneTests" */ = {
 			isa = XCConfigurationList;
@@ -451,6 +466,7 @@
 				F71FC6FF13EA359500322E72 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
