@@ -1,0 +1,3 @@
+[submodule "firmware/WiShield"]
+	path = firmware/WiShield
+	url = https://github.com/asynclabs/WiShield.git
