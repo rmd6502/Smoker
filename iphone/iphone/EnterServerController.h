@@ -9,8 +9,15 @@
 #import <UIKit/UIKit.h>
 
 
-@interface EnterServerController : UIViewController {
+@interface EnterServerController : UIViewController<UITextFieldDelegate> {
+    NSString *defaultServerUrl;
+    IBOutlet UITextField *defaultServerField;
     
 }
+
+@property (nonatomic, copy) NSString *defaultServerUrl;
+
+
+-(IBAction)goServer: (id)sender;
 
 @end

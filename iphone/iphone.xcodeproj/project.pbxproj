@@ -25,6 +25,9 @@
 		F7BE135013F35F11006E5B52 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F7BE134F13F35F11006E5B52 /* Default.png */; };
 		F7BE135A13F3666E006E5B52 /* EnterServerController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BE135813F3666E006E5B52 /* EnterServerController.m */; };
 		F7BE135B13F3666E006E5B52 /* EnterServerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7BE135913F3666E006E5B52 /* EnterServerController.xib */; };
+		F7ED3F1813FC9B6D00736830 /* settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7ED3F1713FC9B6D00736830 /* settings.plist */; };
+		F7ED3F1D13FCA06500736830 /* SettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ED3F1B13FCA06500736830 /* SettingsController.m */; };
+		F7ED3F1E13FCA06500736830 /* SettingsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7ED3F1C13FCA06500736830 /* SettingsController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +65,10 @@
 		F7BE135713F3666E006E5B52 /* EnterServerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnterServerController.h; sourceTree = "<group>"; };
 		F7BE135813F3666E006E5B52 /* EnterServerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnterServerController.m; sourceTree = "<group>"; };
 		F7BE135913F3666E006E5B52 /* EnterServerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EnterServerController.xib; sourceTree = "<group>"; };
+		F7ED3F1713FC9B6D00736830 /* settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = settings.plist; sourceTree = "<group>"; };
+		F7ED3F1A13FCA06500736830 /* SettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsController.h; sourceTree = "<group>"; };
+		F7ED3F1B13FCA06500736830 /* SettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsController.m; sourceTree = "<group>"; };
+		F7ED3F1C13FCA06500736830 /* SettingsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +138,9 @@
 				F7BE135913F3666E006E5B52 /* EnterServerController.xib */,
 				F71FC6DF13EA359500322E72 /* RootViewController.xib */,
 				F71FC6CE13EA359500322E72 /* Supporting Files */,
+				F7ED3F1A13FCA06500736830 /* SettingsController.h */,
+				F7ED3F1B13FCA06500736830 /* SettingsController.m */,
+				F7ED3F1C13FCA06500736830 /* SettingsController.xib */,
 			);
 			path = iphone;
 			sourceTree = "<group>";
@@ -162,6 +172,7 @@
 				F71FC6EF13EA359500322E72 /* iphoneTests-Info.plist */,
 				F71FC6F013EA359500322E72 /* InfoPlist.strings */,
 				F71FC6F313EA359500322E72 /* iphoneTests-Prefix.pch */,
+				F7ED3F1713FC9B6D00736830 /* settings.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -238,6 +249,8 @@
 				F71FC6E113EA359500322E72 /* RootViewController.xib in Resources */,
 				F7BE135013F35F11006E5B52 /* Default.png in Resources */,
 				F7BE135B13F3666E006E5B52 /* EnterServerController.xib in Resources */,
+				F7ED3F1813FC9B6D00736830 /* settings.plist in Resources */,
+				F7ED3F1E13FCA06500736830 /* SettingsController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +290,7 @@
 				F71FC6D813EA359500322E72 /* iphoneAppDelegate.m in Sources */,
 				F71FC6DE13EA359500322E72 /* RootViewController.m in Sources */,
 				F7BE135A13F3666E006E5B52 /* EnterServerController.m in Sources */,
+				F7ED3F1D13FCA06500736830 /* SettingsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

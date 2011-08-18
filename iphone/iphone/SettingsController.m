@@ -1,17 +1,15 @@
 //
-//  EnterServerController.m
+//  SettingsController.m
 //  iphone
 //
-//  Created by desmond bowe on 8/10/11.
+//  Created by desmond bowe on 8/17/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "EnterServerController.h"
+#import "SettingsController.h"
 
 
-@implementation EnterServerController
-
-@synthesize defaultServerUrl;
+@implementation SettingsController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -54,22 +52,6 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-- (IBAction)goServer: (id)sender
-{
-    self.defaultServerUrl = defaultServerField.text;
-    NSLog(@"server url is %@", defaultServerUrl);
-    
-}
-- (void)connectToServer:(NSString *)serverUrl
-{
-    
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
-    return NO;
 }
 
 @end
