@@ -18,6 +18,40 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        /*NSString *path = [[NSBundle mainBundle] bundlePath];
+        NSString *finalPath = [path stringByAppendingPathComponent:@"Smoker.plist"];
+        NSDictionary *plistData = [[NSDictionary dictionaryWithContentsOfFile:finalPath] retain];
+        if (plistData == NULL)
+            NSLog(@"plistdata is null");
+        */
+        
+     
+        
+        /*
+        NSString *filePath = @"/Users/patchuser/code/Smoker/iphone/iphone/Smoker.plist";
+        NSMutableDictionary* plistDict = [[NSMutableDictionary alloc] initWithContentsOfFile:filePath];
+        
+        NSString *value;
+        value = [plistDict objectForKey:@"server"];
+        if (value == NULL)
+            NSLog(@"it b NULL");
+        */
+        
+        
+        
+        
+        
+        //NSString *filePath = @"/System/Library/CoreServices/SystemVersion.plist";
+        //NSMutableDictionary* plistDict = [[NSMutableDictionary alloc] initWithContentsOfFile:filePath];
+        
+        //[plistDict setValue:@"http://www.another.url" forKey:@"server"];
+        //[plistDict writeToFile:filePath atomically: YES];
+        
+        ///value = [plistDict objectForKey:@"server"];
+        //if (value == NULL)
+        //    NSLog(@"it b NULL");
+
+        
     }
     return self;
 }
@@ -41,6 +75,17 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    
+    NSString *filePath = @"/Users/patchuser/code/Smoker/iphone/iphone/Smoker.plist";
+    NSMutableDictionary* plistDict = [[NSMutableDictionary alloc] initWithContentsOfFile:filePath];
+    
+    NSString *value;
+    value = [plistDict objectForKey:@"server"];
+    if (value == NULL)
+        NSLog(@"it b NULL");
+    else
+        defaultServerField.text = value;
 }
 
 - (void)viewDidUnload
@@ -60,6 +105,19 @@
 {
     self.defaultServerUrl = defaultServerField.text;
     NSLog(@"server url is %@", defaultServerUrl);
+    
+    
+    
+    NSString *filePath = @"/Users/patchuser/code/Smoker/iphone/iphone/Smoker.plist";
+    NSMutableDictionary* plistDict = [[NSMutableDictionary alloc] initWithContentsOfFile:filePath];
+    
+    [plistDict setValue:self.defaultServerUrl forKey:@"server"];
+    [plistDict writeToFile:filePath atomically: YES];
+    
+    NSString *value;
+    value = [plistDict objectForKey:@"server"];
+    if (value == NULL)
+        NSLog(@"it b NULL");
     
 }
 - (void)connectToServer:(NSString *)serverUrl
