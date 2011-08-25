@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF84894E1405CA91005691EA /* Smoker.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF84894D1405CA91005691EA /* Smoker.plist */; };
 		F71FC6C813EA359500322E72 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F71FC6C713EA359500322E72 /* UIKit.framework */; };
 		F71FC6CA13EA359500322E72 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F71FC6C913EA359500322E72 /* Foundation.framework */; };
 		F71FC6CC13EA359500322E72 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F71FC6CB13EA359500322E72 /* CoreGraphics.framework */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AF84894D1405CA91005691EA /* Smoker.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Smoker.plist; sourceTree = "<group>"; };
 		F71FC6C313EA359500322E72 /* iphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iphone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F71FC6C713EA359500322E72 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F71FC6C913EA359500322E72 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -148,6 +150,7 @@
 		F71FC6CE13EA359500322E72 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AF84894D1405CA91005691EA /* Smoker.plist */,
 				F71FC6CF13EA359500322E72 /* iphone-Info.plist */,
 				F71FC6D013EA359500322E72 /* InfoPlist.strings */,
 				F71FC6D313EA359500322E72 /* iphone-Prefix.pch */,
@@ -251,6 +254,7 @@
 				F7BE135B13F3666E006E5B52 /* EnterServerController.xib in Resources */,
 				F7ED3F1813FC9B6D00736830 /* settings.plist in Resources */,
 				F7ED3F1E13FCA06500736830 /* SettingsController.xib in Resources */,
+				AF84894E1405CA91005691EA /* Smoker.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
