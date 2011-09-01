@@ -17,40 +17,26 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
-        /*NSString *path = [[NSBundle mainBundle] bundlePath];
-        NSString *finalPath = [path stringByAppendingPathComponent:@"Smoker.plist"];
-        NSDictionary *plistData = [[NSDictionary dictionaryWithContentsOfFile:finalPath] retain];
-        if (plistData == NULL)
-            NSLog(@"plistdata is null");
-        */
         
-     
         
         /*
-        NSString *filePath = @"/Users/patchuser/code/Smoker/iphone/iphone/Smoker.plist";
-        NSMutableDictionary* plistDict = [[NSMutableDictionary alloc] initWithContentsOfFile:filePath];
+        responseData = [[NSMutableData data] retain];
         
-        NSString *value;
-        value = [plistDict objectForKey:@"server"];
-        if (value == NULL)
-            NSLog(@"it b NULL");
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.google.com"]];
+        [[NSURLConnection alloc] initWithRequest:request delegate:self];
         */
         
         
+        NSURL* url = [NSURL URLWithString:@"http://www.google.com"];
+        NSStringEncoding encoding;
+        NSError* error = nil;
+        NSString* pageData = [NSString stringWithContentsOfURL:url
+                                                  usedEncoding:&encoding error:&error];
         
-        
-        
-        //NSString *filePath = @"/System/Library/CoreServices/SystemVersion.plist";
-        //NSMutableDictionary* plistDict = [[NSMutableDictionary alloc] initWithContentsOfFile:filePath];
-        
-        //[plistDict setValue:@"http://www.another.url" forKey:@"server"];
-        //[plistDict writeToFile:filePath atomically: YES];
-        
-        ///value = [plistDict objectForKey:@"server"];
-        //if (value == NULL)
-        //    NSLog(@"it b NULL");
-
+        if(pageData == NULL)
+            NSLog(@"pageData is NULL");
+        else
+            NSLog(pageData);
         
     }
     return self;
@@ -86,6 +72,10 @@
         NSLog(@"it b NULL");
     else
         defaultServerField.text = value;
+    
+    
+    
+    
 }
 
 - (void)viewDidUnload
@@ -119,6 +109,13 @@
     if (value == NULL)
         NSLog(@"it b NULL");
     
+    
+//    Class cl = (Class)objc_getClass([functions[[formulaPicker selectedRowInComponent:0]].className UTF8String]);
+    UIViewController *fvc = class_createInstance((Class)objc_getClass(@"SettingsController"), 0);
+    [fvc initWithNibName:nil bundle:nil];
+    [self presentModalViewController:fvc animated:YES];
+    
+    
 }
 - (void)connectToServer:(NSString *)serverUrl
 {
@@ -129,5 +126,32 @@
     [textField resignFirstResponder];
     return NO;
 }
+
+
+
+/*
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    [responseData setLength:0];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    [responseData appendData:data];
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    // Show error
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    // Once this method is invoked, "responseData" contains the complete result
+}
+*/
+
+
+
 
 @end
