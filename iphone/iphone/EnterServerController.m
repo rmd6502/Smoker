@@ -17,35 +17,31 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
-        
-        /*
-        responseData = [[NSMutableData data] retain];
-        
-        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.google.com"]];
-        [[NSURLConnection alloc] initWithRequest:request delegate:self];
-        */
-        
-        
+        // HTTP GET
         NSURL* url = [NSURL URLWithString:@"http://www.google.com"];
         NSStringEncoding encoding;
         NSError* error = nil;
-        NSString* pageData = [NSString stringWithContentsOfURL:url
-                                                  usedEncoding:&encoding error:&error];
-        
+        NSString* pageData = [NSString stringWithContentsOfURL:url usedEncoding:&encoding error:&error];
         if(pageData == NULL)
             NSLog(@"pageData is NULL");
         else
             NSLog(pageData);
+
+        // HTTP POST
+        url = [NSURL URLWithString:@"http://www.google.com.br"];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+        [request setHTTPMethod:@"POST"];
+        NSData *requestBody = [@"username:x&password:y" dataUsingEncoding:NSUTF8StringEncoding];
+        [request setHTTPBody:requestBody];
+        NSURLResponse *response = NULL;
+        NSError *requestError = NULL;
+        NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&requestError];
+        NSString *responseString = [[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding] autorelease];
         
-        
-        
-        
-        
-        
-        
-        
-        
+        if(responseString == NULL)
+            NSLog(@"responseString is NULL");
+        else
+            NSLog(responseString);
     }
     return self;
 }
@@ -70,39 +66,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    
-    NSString *filePath = @"/Users/patchuser/code/Smoker/iphone/iphone/Smoker.plist";
+    // read from plist
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Smoker" ofType:@"plist" inDirectory:@""];
     NSMutableDictionary* plistDict = [[NSMutableDictionary alloc] initWithContentsOfFile:filePath];
-    
-    NSString *value;
-    value = [plistDict objectForKey:@"server"];
+
+    NSString *value = [plistDict objectForKey:@"server"];
     if (value == NULL)
-        NSLog(@"it b NULL");
+        NSLog(@"plist server is NULL");
     else
         defaultServerField.text = value;
     
-    
-    
-    
-    
-    
-    NSURL *url = [NSURL URLWithString:@"http://www.google.com.br"];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    [request setHTTPMethod:@"POST"];
-    NSData *requestBody = [@"username:x&password:y" dataUsingEncoding:NSUTF8StringEncoding];
-    [request setHTTPBody:requestBody];
-    NSURLResponse *response = NULL;
-    NSError *requestError = NULL;
-    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&requestError];
-    NSString *responseString = [[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding] autorelease];
-    
-    if(responseString == NULL)
-        NSLog(@"responseString is NULL");
-    else
-        NSLog(responseString);
-    
-    
-    
+    // read from documents
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    if ([paths count] > 0) {
+        NSString *userDocumentsPath = [paths objectAtIndex:0];
+    }  
 }
 
 - (void)viewDidUnload
@@ -123,26 +101,18 @@
     self.defaultServerUrl = defaultServerField.text;
     NSLog(@"server url is %@", defaultServerUrl);
     
-    
-    
-    NSString *filePath = @"/Users/patchuser/code/Smoker/iphone/iphone/Smoker.plist";
+    // write to plist
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Smoker" ofType:@"plist" inDirectory:@""];
     NSMutableDictionary* plistDict = [[NSMutableDictionary alloc] initWithContentsOfFile:filePath];
     
     [plistDict setValue:self.defaultServerUrl forKey:@"server"];
     [plistDict writeToFile:filePath atomically: YES];
     
-    NSString *value;
-    value = [plistDict objectForKey:@"server"];
+    NSString *value = [plistDict objectForKey:@"server"];
     if (value == NULL)
-        NSLog(@"it b NULL");
-    
-    
-//    Class cl = (Class)objc_getClass([functions[[formulaPicker selectedRowInComponent:0]].className UTF8String]);
-    UIViewController *fvc = class_createInstance((Class)objc_getClass(@"SettingsController"), 0);
-    [fvc initWithNibName:nil bundle:nil];
-    [self presentModalViewController:fvc animated:YES];
-    
-    
+        NSLog(@"plist server is NULL");
+    else
+        NSLog(@"server value is %@", value);
 }
 - (void)connectToServer:(NSString *)serverUrl
 {
