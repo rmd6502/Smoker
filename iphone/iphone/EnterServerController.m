@@ -38,6 +38,14 @@
         else
             NSLog(pageData);
         
+        
+        
+        
+        
+        
+        
+        
+        
     }
     return self;
 }
@@ -73,6 +81,25 @@
     else
         defaultServerField.text = value;
     
+    
+    
+    
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://www.google.com.br"];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request setHTTPMethod:@"POST"];
+    NSData *requestBody = [@"username:x&password:y" dataUsingEncoding:NSUTF8StringEncoding];
+    [request setHTTPBody:requestBody];
+    NSURLResponse *response = NULL;
+    NSError *requestError = NULL;
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&requestError];
+    NSString *responseString = [[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding] autorelease];
+    
+    if(responseString == NULL)
+        NSLog(@"responseString is NULL");
+    else
+        NSLog(responseString);
     
     
     
