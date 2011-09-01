@@ -34,14 +34,20 @@ unsigned char security_passphrase_len;
 boolean handleVerb(char *verb, char *saveptr) {
     char delims[] = "/";
     char *action = strtok_r(NULL, delims, &saveptr);
-    if (strcmp(verb, "qtemp")) {
-        return handleQtemp(action, saveptr);
+    if (verb == NULL) {
+      verb = "qtemp";
     }
-    else if (strcmp(verb, "mtemp")) {
+    if (action == NULL) {
+      action = "get";
+    }
+    if (!strcmp(verb, "qtemp")) {
+        return handleQtemp(action, &saveptr);
+    }
+    else if (!strcmp(verb, "mtemp")) {
         return getMtemp();
     }
-    else if (strcmp(verb, "time")) {
-        return handleTime(action, saveptr);
+    else if (!strcmp(verb, "time")) {
+        return handleTime(action, &saveptr);
     }
     return false;
 }
@@ -74,25 +80,36 @@ char[] HEADER = "<!DOCTYPE html>";
 
 boolean getQtemp() {
   WiServer.print(HEADER);
-  /* code */
+  WiServer.print("<qtemp>180</qtemp>");
 }
 
-boolean setQtemp() {
-  /* code */
+boolean setQtemp(const char *value) {
+  WiServer.print(HEADER);
+  if (value == NULL) {
+    WiServer.print("<status>FAIL</status>");
+  } else {
+    WiServer.print("<status>0</status>");
+  }
 }
 
 boolean getMtemp() {
   WiServer.print(HEADER);
+  WiServer.print("<mtemp>80</mtemp>");
   /* code */
 }
 
 boolean getTime() {
   WiServer.print(HEADER);
-  /* code */
+  WiServer.print("<time>10000</time>");
 }
 
-boolean setTime() {
-  /* code */
+boolean setTime(const char *value) {
+  WiServer.print(HEADER);
+  if (value == NULL) {
+    WiServer.print("<status>FAIL</status>");
+  } else {
+    WiServer.print("<status>0</status>");
+  }
 }
 
 // This is our page serving function that generates web pages
@@ -101,22 +118,6 @@ boolean handleRequests(char* URL) {
     char *saveptr;
     char *verb = strtok_r(URL + 1, delims, &saveptr);
     return handleVerb(verb, saveptr);
-
-
-    if (result != NULL) {
-    }
-    result = strtok(NULL, delims);
-    // Check if the requested URL matches "/"
-    if (strcmp(target, "/") == 0) {
-        // Use WiServer's print and println functions to write out the page content
-        WiServer.print("<html>");
-        WiServer.print("Hello World!");
-        WiServer.print("</html>");
-
-        // URL was recognized
-        return true;
-    }
-    // URL not found
 }
 
 
