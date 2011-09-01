@@ -66,15 +66,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    // read from plist
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Smoker" ofType:@"plist" inDirectory:@""];
-    NSMutableDictionary* plistDict = [[NSMutableDictionary alloc] initWithContentsOfFile:filePath];
-
-    NSString *value = [plistDict objectForKey:@"server"];
-    if (value == NULL)
-        NSLog(@"plist server is NULL");
+    // read from NSUserDefaults
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    NSString *server = [prefs stringForKey:@"server"];
+    if (server == NULL)
+        NSLog(@"NSUserDefaults server is NULL");
     else
-        defaultServerField.text = value;
+        defaultServerField.text = server;
     
     // read from documents
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -101,19 +99,12 @@
     self.defaultServerUrl = defaultServerField.text;
     NSLog(@"server url is %@", defaultServerUrl);
     
-    // write to plist
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Smoker" ofType:@"plist" inDirectory:@""];
-    NSMutableDictionary* plistDict = [[NSMutableDictionary alloc] initWithContentsOfFile:filePath];
-    
-    [plistDict setValue:self.defaultServerUrl forKey:@"server"];
-    [plistDict writeToFile:filePath atomically: YES];
-    
-    NSString *value = [plistDict objectForKey:@"server"];
-    if (value == NULL)
-        NSLog(@"plist server is NULL");
-    else
-        NSLog(@"server value is %@", value);
+    // write to NSUserDefaults
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    [prefs setObject:self.defaultServerUrl forKey:@"server"];
+    [prefs synchronize];
 }
+
 - (void)connectToServer:(NSString *)serverUrl
 {
     
@@ -123,32 +114,5 @@
     [textField resignFirstResponder];
     return NO;
 }
-
-
-
-/*
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
-{
-    [responseData setLength:0];
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
-    [responseData appendData:data];
-}
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-{
-    // Show error
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection
-{
-    // Once this method is invoked, "responseData" contains the complete result
-}
-*/
-
-
-
 
 @end
